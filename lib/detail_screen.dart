@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:wisata_bandung/checkbox.dart';
+import 'package:wisata_bandung/images.dart';
+import 'package:wisata_bandung/radio_button.dart';
 import 'package:wisata_bandung/switch.dart';
 import 'package:wisata_bandung/textField.dart';
 
@@ -63,6 +66,19 @@ class DetailScreen extends StatelessWidget {
                 ),
               ),
 
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  vertical: 8,
+                  horizontal: 16,
+                ),
+                child: Container(
+                  decoration: BoxDecoration(color: Colors.white),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(12),
+                    child: SesiImage(),
+                  ),
+                ),
+              ),
               Padding(
                 padding: const EdgeInsets.symmetric(
                   vertical: 8,
@@ -199,9 +215,14 @@ class DetailScreen extends StatelessWidget {
                         ],
                       ),
                     ),
-
+                    Text('Sesi Text Field'),
                     Form(child: SesiTextField()),
+                    Text('Sesi Switch'),
                     SesiSwitch(),
+                    Text('Sesi Radio Button'),
+                    SesiRadioButton(),
+                    Text('Sesi Checkbox'),
+                    SesiCheckbox(),
                   ],
                 ),
               ),

@@ -8,13 +8,51 @@ class SesiRadioButton extends StatefulWidget {
 }
 
 class _SesiRadioButtonState extends State<SesiRadioButton> {
+  String? language;
   @override
   Widget build(BuildContext context) {
-    return RadioMenuButton(
-      value: context,
-      groupValue: context,
-      onChanged: (value) {},
-      child: Text('Data'),
+    return RadioGroup(
+      groupValue: language,
+      onChanged: (value) {
+        setState(() {
+          language = value;
+          showSnackbar();
+        });
+      },
+      child: const Column(
+        children: [
+          ListTile(
+            leading: Radio(value: 'Dart'),
+            title: Text('Dart'),
+          ),
+          ListTile(
+            leading: Radio(value: 'Swift'),
+            title: Text('Swift'),
+          ),
+          ListTile(
+            leading: Radio(value: 'Kotlin'),
+            title: Text('Kotlin'),
+          ),
+
+          Text('Versi Simple: RadioListTile'),
+          RadioListTile(value: 'Indonesia', title: Text('Indonesia')),
+          RadioListTile(value: 'Indonesia', title: Text('Inggris')),
+          RadioListTile(value: 'Indonesia', title: Text('Belanda')),
+        ],
+      ),
+    );
+
+    // VALUE: Setiap tombol diberikan identitas unik melalui value.
+    // GROUPVALUE: Bertndak sebagai penentu tunggal untuk seluruh kelompok tombol tersebut.
+    // ONCHANGED: Akan menangkap nilai unik dari tombol tersebut dan mengirimkannya ke fungsi setState.
+  }
+
+  void showSnackbar() {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('$language selected'),
+        duration: const Duration(seconds: 1),
+      ),
     );
   }
 }
