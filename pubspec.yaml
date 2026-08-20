@@ -18,13 +18,13 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-  fonts:
-    - family: Oswald
-      fonts:
-        - asset: lib/fonts/assets/Oswald/Oswald-Regular.ttf
+  # fonts:
+  #   - family: Oswald
+  #     fonts:
+  #       - asset: lib/fonts/assets/Oswald/Oswald-Regular.ttf
         # Secara default aset yang tidak memiliki nilai weight akan memiliki bobo 400
-        - asset: lib/fonts/assets/Oswald/Oswald-Medium.ttf
-          weight: 500
-        - asset: lib/fonts/assets/Oswald/Oswald-SemiBold.ttf
-          weight: 600
+        # - asset: lib/fonts/assets/Oswald/Oswald-Medium.ttf
+        #   weight: 500
+        # - asset: lib/fonts/assets/Oswald/Oswald-SemiBold.ttf
+        #   weight: 600
           # style: italic -> Bisa menambahkan style

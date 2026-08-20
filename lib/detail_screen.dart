@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wisata_bandung/checkbox.dart';
+import 'package:wisata_bandung/flexible_expanded.dart';
+import 'package:wisata_bandung/flexible_expanded_dicoding.dart';
 import 'package:wisata_bandung/images.dart';
 import 'package:wisata_bandung/radio_button.dart';
 import 'package:wisata_bandung/switch.dart';
@@ -215,6 +217,7 @@ class DetailScreen extends StatelessWidget {
                         ],
                       ),
                     ),
+
                     Text('Sesi Text Field'),
                     Form(child: SesiTextField()),
                     Text('Sesi Switch'),
@@ -223,6 +226,19 @@ class DetailScreen extends StatelessWidget {
                     SesiRadioButton(),
                     Text('Sesi Checkbox'),
                     SesiCheckbox(),
+                    Text('Sesi Flexible & Expanded'),
+                    FilledButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ExpandedFlexibleWidget(),
+                          ),
+                        );
+                      },
+                      child: Text('Sesi Flexible & Expanded Dicoding'),
+                    ),
+                    SesiFlexibleExpanded(),
                   ],
                 ),
               ),
