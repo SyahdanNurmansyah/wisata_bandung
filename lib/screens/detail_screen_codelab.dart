@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wisata_bandung/listView/listView_builder.dart';
 import 'package:wisata_bandung/listView/listView_standar.dart';
+import 'package:wisata_bandung/listView/listview_separator.dart';
 
 class DetailScreenCodelab extends StatelessWidget {
   const DetailScreenCodelab({super.key});
@@ -12,7 +13,7 @@ class DetailScreenCodelab extends StatelessWidget {
         backgroundColor: Colors.grey.shade100,
         title: Text(
           'Detail Wisata',
-          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         ),
 
         leading: IconButton(
@@ -69,7 +70,7 @@ class DetailScreenCodelab extends StatelessWidget {
                         child: Text(
                           'Farm House Lembang',
                           style: TextStyle(
-                            fontSize: 30,
+                            fontSize: MediaQuery.of(context).size.width * 0.08,
                             fontWeight: FontWeight.bold,
                           ),
                           textAlign: TextAlign.center,
@@ -85,21 +86,34 @@ class DetailScreenCodelab extends StatelessWidget {
                   horizontal: 16,
                 ),
                 child: Container(
-                  padding: const EdgeInsets.all(32),
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 32,
+                    horizontal: 16,
+                  ),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Row(
-                    mainAxisAlignment: .spaceEvenly,
-                    crossAxisAlignment: .start,
+                    spacing: 8,
+                    mainAxisAlignment: .center,
+                    // crossAxisAlignment: .center,
                     children: [
                       Expanded(
                         child: Column(
                           spacing: 8,
                           children: [
-                            Icon(Icons.calendar_today_outlined, size: 32),
-                            Text('Open Everyday'),
+                            Icon(
+                              Icons.calendar_today_outlined,
+                              size: MediaQuery.of(context).size.width * 0.07,
+                            ),
+                            Text(
+                              'Open Everyday',
+                              style: TextStyle(
+                                fontSize:
+                                    MediaQuery.of(context).size.width * 0.035,
+                              ),
+                            ),
                           ],
                         ),
                       ),
@@ -107,8 +121,18 @@ class DetailScreenCodelab extends StatelessWidget {
                         child: Column(
                           spacing: 8,
                           children: [
-                            Icon(Icons.access_time, size: 32),
-                            Text('09:00 - 20:00'),
+                            Icon(
+                              Icons.access_time,
+                              size: MediaQuery.of(context).size.width * 0.07,
+                            ),
+                            Text(
+                              '09:00 - 20:00',
+
+                              style: TextStyle(
+                                fontSize:
+                                    MediaQuery.of(context).size.width * 0.035,
+                              ),
+                            ),
                           ],
                         ),
                       ),
@@ -116,8 +140,17 @@ class DetailScreenCodelab extends StatelessWidget {
                         child: Column(
                           spacing: 8,
                           children: [
-                            Icon(Icons.monetization_on_outlined, size: 32),
-                            Text('Rp 25.000'),
+                            Icon(
+                              Icons.monetization_on_outlined,
+                              size: MediaQuery.of(context).size.width * 0.07,
+                            ),
+                            Text(
+                              'Rp 25.000',
+                              style: TextStyle(
+                                fontSize:
+                                    MediaQuery.of(context).size.width * 0.035,
+                              ),
+                            ),
                           ],
                         ),
                       ),
@@ -260,66 +293,84 @@ class DetailScreenCodelab extends StatelessWidget {
                       ),
                     ),
                     Row(
+                      spacing: 12,
                       children: [
-                        Flexible(
-                          child: Row(
-                            children: [
-                              FilledButton(
-                                style: FilledButton.styleFrom(
-                                  elevation: 0,
-                                  foregroundColor: Colors.blue.shade100,
-                                  padding: const EdgeInsets.all(16),
-                                  backgroundColor: Colors.white,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(12),
-                                  ),
-                                ),
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => SesiListView(),
-                                    ),
-                                  );
-                                },
-
-                                child: Text(
-                                  'ListView',
-                                  style: TextStyle(
-                                    color: Colors.grey.shade600,
-                                    fontSize: 18.0,
-                                  ),
-                                ),
+                        Expanded(
+                          child: FilledButton(
+                            style: FilledButton.styleFrom(
+                              elevation: 0,
+                              foregroundColor: Colors.blue.shade100,
+                              padding: const EdgeInsets.all(16),
+                              backgroundColor: Colors.orangeAccent,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(12),
                               ),
-                              FilledButton(
-                                style: FilledButton.styleFrom(
-                                  elevation: 0,
-                                  foregroundColor: Colors.blue.shade100,
-                                  padding: const EdgeInsets.all(16),
-                                  backgroundColor: Colors.white,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(12),
-                                  ),
+                            ),
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => SesiListView(),
                                 ),
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) =>
-                                          SesiListViewBuilder(),
-                                    ),
-                                  );
-                                },
+                              );
+                            },
 
-                                child: Text(
-                                  'ListView Builder (Best Practice untuk banyak data)',
-                                  style: TextStyle(
-                                    color: Colors.grey.shade600,
-                                    fontSize: 18.0,
-                                  ),
-                                ),
+                            child: Text(
+                              'ListView Standar\nUntuk 5-10 Baris Data',
+                              style: TextStyle(color: Colors.black),
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: FilledButton(
+                            style: FilledButton.styleFrom(
+                              elevation: 0,
+                              foregroundColor: Colors.blue.shade100,
+                              padding: const EdgeInsets.all(16),
+                              backgroundColor: Colors.lightGreenAccent,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(12),
                               ),
-                            ],
+                            ),
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => SesiListViewBuilder(),
+                                ),
+                              );
+                            },
+
+                            child: Text(
+                              'ListView Builder\nBest Practice untuk banyak data',
+                              style: TextStyle(color: Colors.black),
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: FilledButton(
+                            style: FilledButton.styleFrom(
+                              elevation: 0,
+                              foregroundColor: Colors.blue.shade100,
+                              padding: const EdgeInsets.all(16),
+                              backgroundColor: Colors.lightGreenAccent,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                            ),
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => SesiListviewSeparator(),
+                                ),
+                              );
+                            },
+
+                            child: Text(
+                              'ListView Builder\nBest Practice untuk banyak data',
+                              style: TextStyle(color: Colors.black),
+                            ),
                           ),
                         ),
                       ],

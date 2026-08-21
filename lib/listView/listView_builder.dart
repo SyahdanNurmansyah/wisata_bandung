@@ -25,14 +25,14 @@ class SesiListViewBuilder extends StatelessWidget {
           );
 
           // Variabel index membantu kita mengambil data secara berurutan
+
+          // Agar LISTVIEW.BUILDER() dapat berfungsi, Anda wajib memberikan dua instruksi utama yang menjadi otak di balik efisiensinya.
+
+          // 1. ITEMCOUNT: Yang bertugas memberikan kepastian kepada Flutter mengenai jumlah total kotak atau baris yang ada dalam antrean.
+
+          // 2. ITEMBUILDER: Sebuah callback function yang bekerja secara dinamis untuk merakit setiap baris hanya saat akan ditampilkan di layar. Fungsi ini bekerja secara efisien dengan cara dipanggil berulang kali sesuai kebutuhan pengguna. Ia mengambil blueprint widget yang Anda siapkan dan mengisinya dengan data yang sesuai urutannya. Alhasil, sistem tidak perlu membuang energi untuk membangun baris yang belum saatnya muncul.
         },
       ),
-
-      // Agar LISTVIEW.BUILDER() dapat berfungsi, Anda wajib memberikan dua instruksi utama yang menjadi otak di balik efisiensinya.
-
-      // 1. ITEMCOUNT: Yang bertugas memberikan kepastian kepada Flutter mengenai jumlah total kotak atau baris yang ada dalam antrean.
-
-      // 2. ITEMBUILDER: Sebuah callback function yang bekerja secara dinamis untuk merakit setiap baris hanya saat akan ditampilkan di layar. Fungsi ini bekerja secara efisien dengan cara dipanggil berulang kali sesuai kebutuhan pengguna. Ia mengambil blueprint widget yang Anda siapkan dan mengisinya dengan data yang sesuai urutannya. Alhasil, sistem tidak perlu membuang energi untuk membangun baris yang belum saatnya muncul.
     );
   }
 }
