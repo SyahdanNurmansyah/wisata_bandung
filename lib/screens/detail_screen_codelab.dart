@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:wisata_bandung/listView/listView_builder.dart';
 import 'package:wisata_bandung/listView/listView_standar.dart';
 import 'package:wisata_bandung/listView/listview_separator.dart';
+import 'package:wisata_bandung/navigation.dart';
 
 class DetailScreenCodelab extends StatelessWidget {
   const DetailScreenCodelab({super.key});
@@ -368,7 +369,7 @@ class DetailScreenCodelab extends StatelessWidget {
                             },
 
                             child: Text(
-                              'ListView Builder\nBest Practice untuk banyak data',
+                              'ListView Separator',
                               style: TextStyle(color: Colors.black),
                             ),
                           ),
@@ -376,6 +377,28 @@ class DetailScreenCodelab extends StatelessWidget {
                       ],
                     ),
                   ],
+                ),
+              ),
+              FilledButton(
+                style: FilledButton.styleFrom(
+                  elevation: 0,
+                  foregroundColor: Colors.blue.shade100,
+                  padding: const EdgeInsets.all(16),
+                  backgroundColor: Colors.lightGreenAccent,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SesiNavigation()),
+                  );
+                },
+
+                child: Text(
+                  'ListView Separator',
+                  style: TextStyle(color: Colors.black),
                 ),
               ),
             ],
