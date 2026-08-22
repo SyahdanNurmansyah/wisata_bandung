@@ -17,10 +17,7 @@ class DetailScreenCodelab extends StatelessWidget {
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         ),
 
-        leading: IconButton(
-          onPressed: () {},
-          icon: Icon(Icons.arrow_back_rounded),
-        ),
+        leading: Icon(Icons.arrow_back_rounded),
 
         actions: [
           Padding(
