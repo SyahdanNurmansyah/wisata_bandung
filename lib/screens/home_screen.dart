@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wisata_bandung/model/tourism_place.dart';
-import 'package:wisata_bandung/model/tourism_place_card.dart'; // tambahkan import untuk akses TourismPlace
+import 'package:wisata_bandung/model/tourism_place_card.dart';
+import 'package:wisata_bandung/screens/detail_screen_codelab.dart'; // tambahkan import untuk akses TourismPlace
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -8,11 +9,17 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey.shade50,
       appBar: AppBar(
-        backgroundColor: Colors.grey.shade100,
-        title: const Text('Wisata Bandung'),
+        backgroundColor: Colors.white,
+        shadowColor: Colors.transparent,
+        surfaceTintColor: Colors.transparent,
+        title: const Text(
+          'Wisata Bandung',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
 
-        leading: Icon(Icons.menu),
+        leading: Icon(Icons.forest),
       ),
 
       body: SafeArea(
@@ -21,7 +28,18 @@ class HomeScreen extends StatelessWidget {
           itemCount: tourimsPlaceList.length,
           itemBuilder: (context, index) {
             final tourismPlace = tourimsPlaceList[index];
-            return TourismPlaceCard(tourismPlace: tourismPlace);
+            return TourismPlaceCard(
+              tourismPlace: tourismPlace,
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        DetailScreenCodelab(tourismPlace: tourismPlace),
+                  ),
+                );
+              },
+            );
           },
         ),
       ),

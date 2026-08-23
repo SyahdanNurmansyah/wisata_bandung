@@ -3,75 +3,72 @@ import 'package:wisata_bandung/model/tourism_place.dart';
 
 class TourismPlaceCard extends StatelessWidget {
   final TourismPlace tourismPlace;
-  const TourismPlaceCard({super.key, required this.tourismPlace});
+  final VoidCallback onTap;
+  const TourismPlaceCard({
+    super.key,
+    required this.tourismPlace,
+    required this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 16),
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: Row(
-                crossAxisAlignment: .start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(8),
-                      child: Image.asset(
-                        tourismPlace.imageHeader,
-                        height: 100,
-                        width: 150,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                  Flexible(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        crossAxisAlignment: .start,
-                        children: [
-                          Text(
-                            tourismPlace.name,
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                          Text(
-                            tourismPlace.location,
-                            style: TextStyle(color: Colors.grey.shade600),
-                          ),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+      child: Card(
+        shadowColor: Colors.transparent,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        color: Colors.white,
+        clipBehavior: Clip.hardEdge,
 
-                          Row(
-                            spacing: 8,
-                            crossAxisAlignment: .center,
-                            children: [
-                              Icon(
-                                Icons.confirmation_number_rounded,
-                                color: Colors.grey,
-                                size: 20,
-                              ),
-                              Text(tourismPlace.ticketPrice),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
+        child: InkWell(
+          onTap: onTap,
+          splashColor: Colors.grey.shade50,
+          highlightColor: Colors.grey.shade100,
+          child: Row(
+            spacing: 16,
+            crossAxisAlignment: .start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(12),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(8),
+                  child: Image.asset(
+                    tourismPlace.imageHeader,
+                    height: 100,
+                    width: 150,
+                    fit: BoxFit.cover,
                   ),
-                ],
+                ),
               ),
-            ),
+
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 12),
+                  child: Column(
+                    crossAxisAlignment: .start,
+                    children: [
+                      Text(
+                        tourismPlace.name,
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      Text(
+                        tourismPlace.location,
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: Colors.grey.shade600,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
-      ],
+      ),
     );
   }
 }

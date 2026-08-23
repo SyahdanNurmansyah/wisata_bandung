@@ -1,33 +1,39 @@
 import 'package:flutter/material.dart';
+import 'package:wisata_bandung/favorite/favorite_icon.dart';
 import 'package:wisata_bandung/listView/listView_builder.dart';
 import 'package:wisata_bandung/listView/listView_standar.dart';
 import 'package:wisata_bandung/listView/listview_separator.dart';
+import 'package:wisata_bandung/model/tourism_place.dart';
 import 'package:wisata_bandung/navigation.dart';
 
 class DetailScreenCodelab extends StatelessWidget {
-  const DetailScreenCodelab({super.key});
+  final TourismPlace tourismPlace;
+  const DetailScreenCodelab({super.key, required this.tourismPlace});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.grey.shade100,
+        surfaceTintColor: Colors.transparent,
+        backgroundColor: Colors.white,
         title: Text(
           'Detail Wisata',
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         ),
 
-        leading: Icon(Icons.arrow_back_rounded),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.arrow_back_rounded),
+        ),
 
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 16),
             child: Row(
               children: [
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(Icons.star_border_rounded, size: 28),
-                ),
+                FavoriteIcon(),
                 IconButton(
                   onPressed: () {},
                   icon: Icon(Icons.turn_right_rounded),
@@ -57,7 +63,7 @@ class DetailScreenCodelab extends StatelessWidget {
                     children: [
                       ClipRRect(
                         borderRadius: BorderRadius.circular(12),
-                        child: Image.asset('assets/images/farm-house.jpg'),
+                        child: Image.asset(tourismPlace.imageHeader),
 
                         // PENTING MENDAFTAR ASET GAMBAR LOKAL
                         // Menambahkan aset gambar lokal ke dalam proyek Flutter sangat krusial karena Flutter menganut sistem SANDBOXING. Hal ini ditujukan dengan alasan keamanan dan efisiensi performa. Dengan mendaftarkan gambar ke dalam berkas pubspec.yaml. Anda secara eskplisit memberikan izin kepada aplikasi untuk membundel berkas fisik tersebut ke dalam paket instalasi (APK atau IPA) saat proses build berlangsung.
@@ -66,7 +72,7 @@ class DetailScreenCodelab extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.all(16),
                         child: Text(
-                          'Farm House Lembang',
+                          tourismPlace.name,
                           style: TextStyle(
                             fontSize: MediaQuery.of(context).size.width * 0.08,
                             fontWeight: FontWeight.bold,
@@ -106,7 +112,7 @@ class DetailScreenCodelab extends StatelessWidget {
                               size: MediaQuery.of(context).size.width * 0.07,
                             ),
                             Text(
-                              'Open Everyday',
+                              tourismPlace.openDays,
                               style: TextStyle(
                                 fontSize:
                                     MediaQuery.of(context).size.width * 0.035,
@@ -124,8 +130,7 @@ class DetailScreenCodelab extends StatelessWidget {
                               size: MediaQuery.of(context).size.width * 0.07,
                             ),
                             Text(
-                              '09:00 - 20:00',
-
+                              tourismPlace.openTime,
                               style: TextStyle(
                                 fontSize:
                                     MediaQuery.of(context).size.width * 0.035,
@@ -143,7 +148,7 @@ class DetailScreenCodelab extends StatelessWidget {
                               size: MediaQuery.of(context).size.width * 0.07,
                             ),
                             Text(
-                              'Rp 25.000',
+                              tourismPlace.ticketPrice,
                               style: TextStyle(
                                 fontSize:
                                     MediaQuery.of(context).size.width * 0.035,
@@ -172,7 +177,7 @@ class DetailScreenCodelab extends StatelessWidget {
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: Text(
-                        'Berada di jalur utama Bandung-Lembang, Farm House menjadi objek wisata yang tidak pernah sepi pengunjung. Selain karena letaknya strategis, kawasan ini juga menghadirkan nuansa wisata khas Eropa. Semua itu diterapkan dalam bentuk spot swafoto Instagramable.',
+                        tourismPlace.description,
                         style: TextStyle(fontSize: 18.0),
                       ),
                     ),
@@ -192,24 +197,11 @@ class DetailScreenCodelab extends StatelessWidget {
                         child: Row(
                           spacing: 8,
                           children: [
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(12),
-                              child: Image.network(
-                                'https://media-cdn.tripadvisor.com/media/photo-s/0d/7c/59/70/farmhouse-lembang.jpg',
+                            for (final image in tourismPlace.imageUrls)
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(12),
+                                child: Image.network(image),
                               ),
-                            ),
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(12),
-                              child: Image.network(
-                                'https://media-cdn.tripadvisor.com/media/photo-w/13/f0/22/f6/photo3jpg.jpg',
-                              ),
-                            ),
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(12),
-                              child: Image.network(
-                                'https://media-cdn.tripadvisor.com/media/photo-m/1280/16/a9/33/43/liburan-di-farmhouse.jpg',
-                              ),
-                            ),
                           ],
                         ),
                       ),
