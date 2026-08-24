@@ -43,21 +43,23 @@ class TourismPlaceCard extends StatelessWidget {
 
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsets.only(top: 12),
+                  padding: const EdgeInsets.only(top: 12, right: 12),
                   child: Column(
                     crossAxisAlignment: .start,
                     children: [
                       Text(
                         tourismPlace.name,
                         style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 16,
                           fontWeight: FontWeight.w600,
+                          height: 1,
                         ),
                       ),
+
                       Text(
                         tourismPlace.location,
                         style: TextStyle(
-                          fontSize: 18,
+                          fontSize: 14,
                           color: Colors.grey.shade600,
                         ),
                       ),

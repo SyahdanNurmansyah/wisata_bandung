@@ -64,7 +64,7 @@ class DetailBodyForMobile extends StatelessWidget {
                         Icon(Icons.calendar_today_outlined, size: 18),
                         Text(
                           tourismPlace.openDays,
-                          style: TextStyle(fontSize: 14),
+                          style: TextStyle(fontSize: 14, height: 1),
                         ),
                       ],
                     ),
@@ -145,7 +145,7 @@ class DetailBodyForMobile extends StatelessWidget {
                   elevation: 0,
                   foregroundColor: Colors.blue.shade100,
                   padding: const EdgeInsets.all(16),
-                  backgroundColor: Colors.white,
+                  backgroundColor: Colors.blue,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
                   ),
@@ -157,13 +157,13 @@ class DetailBodyForMobile extends StatelessWidget {
                       return AlertDialog(
                         content: SizedBox(
                           width: 400,
-                          height: 100,
+                          height: 120,
                           child: Column(
                             mainAxisAlignment: .spaceBetween,
                             children: [
                               Text(
                                 'Hello World! Selamat Anda berhasil uji coba tombol ini!',
-                                style: TextStyle(fontSize: 18),
+                                style: TextStyle(fontSize: 14),
                               ),
 
                               Row(
@@ -171,10 +171,16 @@ class DetailBodyForMobile extends StatelessWidget {
                                 mainAxisAlignment: .end,
                                 children: [
                                   TextButton(
+                                    style: TextButton.styleFrom(
+                                      overlayColor: Colors.transparent,
+                                    ),
                                     onPressed: () {
                                       Navigator.pop(context);
                                     },
-                                    child: Text('Keluar'),
+                                    child: Text(
+                                      'Keluar',
+                                      style: TextStyle(color: Colors.blue),
+                                    ),
                                   ),
                                   FilledButton(
                                     style: FilledButton.styleFrom(
@@ -200,203 +206,21 @@ class DetailBodyForMobile extends StatelessWidget {
                   mainAxisAlignment: .center,
                   children: [
                     Text(
-                      'Lihat detail',
-                      style: TextStyle(
-                        color: Colors.grey.shade600,
-                        fontSize: 18.0,
-                      ),
+                      'Tombol',
+                      style: TextStyle(color: Colors.white, fontSize: 16.0),
                     ),
 
                     Icon(
                       Icons.arrow_forward_rounded,
-                      color: Colors.grey.shade600,
+                      color: Colors.white,
                       size: 20,
                     ),
                   ],
                 ),
               ),
-              // Row(
-              //   spacing: 12,
-              //   children: [
-              //     Expanded(
-              //       child: FilledButton(
-              //         style: FilledButton.styleFrom(
-              //           elevation: 0,
-              //           foregroundColor: Colors.blue.shade100,
-              //           padding: const EdgeInsets.all(16),
-              //           backgroundColor: Colors.orangeAccent,
-              //           shape: RoundedRectangleBorder(
-              //             borderRadius: BorderRadius.circular(12),
-              //           ),
-              //         ),
-              //         onPressed: () {
-              //           Navigator.push(
-              //             context,
-              //             MaterialPageRoute(
-              //               builder: (context) => SesiListView(),
-              //             ),
-              //           );
-              //         },
-
-              //         child: Text(
-              //           'ListView Standar\nUntuk 5-10 Baris Data',
-              //           style: TextStyle(color: Colors.black),
-              //         ),
-              //       ),
-              //     ),
-              //     Expanded(
-              //       child: FilledButton(
-              //         style: FilledButton.styleFrom(
-              //           elevation: 0,
-              //           foregroundColor: Colors.blue.shade100,
-              //           padding: const EdgeInsets.all(16),
-              //           backgroundColor: Colors.lightGreenAccent,
-              //           shape: RoundedRectangleBorder(
-              //             borderRadius: BorderRadius.circular(12),
-              //           ),
-              //         ),
-              //         onPressed: () {
-              //           Navigator.push(
-              //             context,
-              //             MaterialPageRoute(
-              //               builder: (context) => SesiListViewBuilder(),
-              //             ),
-              //           );
-              //         },
-
-              //         child: Text(
-              //           'ListView Builder\nBest Practice untuk banyak data',
-              //           style: TextStyle(color: Colors.black),
-              //         ),
-              //       ),
-              //     ),
-              //     Expanded(
-              //       child: FilledButton(
-              //         style: FilledButton.styleFrom(
-              //           elevation: 0,
-              //           foregroundColor: Colors.blue.shade100,
-              //           padding: const EdgeInsets.all(16),
-              //           backgroundColor: Colors.lightGreenAccent,
-              //           shape: RoundedRectangleBorder(
-              //             borderRadius: BorderRadius.circular(12),
-              //           ),
-              //         ),
-              //         onPressed: () {
-              //           Navigator.push(
-              //             context,
-              //             MaterialPageRoute(
-              //               builder: (context) => SesiListviewSeparator(),
-              //             ),
-              //           );
-              //         },
-
-              //         child: Text(
-              //           'ListView Separator',
-              //           style: TextStyle(color: Colors.black),
-              //         ),
-              //       ),
-              //     ),
-              //   ],
-              // ),
             ],
           ),
         ),
-        // const SizedBox(height: 24),
-        // FilledButton(
-        //   style: FilledButton.styleFrom(
-        //     elevation: 0,
-        //     foregroundColor: Colors.blue.shade100,
-        //     padding: const EdgeInsets.all(16),
-        //     backgroundColor: Colors.lightGreenAccent,
-        //     shape: RoundedRectangleBorder(
-        //       borderRadius: BorderRadius.circular(12),
-        //     ),
-        //   ),
-        //   onPressed: () {
-        //     Navigator.push(
-        //       context,
-        //       MaterialPageRoute(builder: (context) => SesiNavigation()),
-        //     );
-        //   },
-
-        //   child: Text(
-        //     'ListView Separator',
-        //     style: TextStyle(color: Colors.black),
-        //   ),
-        // ),
-        // const SizedBox(height: 24),
-        // FilledButton(
-        //   style: FilledButton.styleFrom(
-        //     elevation: 0,
-        //     foregroundColor: Colors.blue.shade100,
-        //     padding: const EdgeInsets.all(16),
-        //     backgroundColor: Colors.lightGreenAccent,
-        //     shape: RoundedRectangleBorder(
-        //       borderRadius: BorderRadius.circular(12),
-        //     ),
-        //   ),
-        //   onPressed: () {
-        //     Navigator.push(
-        //       context,
-        //       MaterialPageRoute(builder: (context) => SesiMediaQuery()),
-        //     );
-        //   },
-
-        //   child: Text(
-        //     'Sesi MediaQuery',
-        //     style: TextStyle(color: Colors.black),
-        //   ),
-        // ),
-        // const SizedBox(height: 24),
-        // FilledButton(
-        //   style: FilledButton.styleFrom(
-        //     elevation: 0,
-        //     foregroundColor: Colors.blue.shade100,
-        //     padding: const EdgeInsets.all(16),
-        //     backgroundColor: Colors.lightGreenAccent,
-        //     shape: RoundedRectangleBorder(
-        //       borderRadius: BorderRadius.circular(12),
-        //     ),
-        //   ),
-        //   onPressed: () {
-        //     Navigator.push(
-        //       context,
-        //       MaterialPageRoute(
-        //         builder: (context) => SesiTanpaLayoutBuilder(),
-        //       ),
-        //     );
-        //   },
-
-        //   child: Text(
-        //     'Sesi Tanpa LayoutBuilder',
-        //     style: TextStyle(color: Colors.black),
-        //   ),
-        // ),
-        // const SizedBox(height: 24),
-        // FilledButton(
-        //   style: FilledButton.styleFrom(
-        //     elevation: 0,
-        //     foregroundColor: Colors.blue.shade100,
-        //     padding: const EdgeInsets.all(16),
-        //     backgroundColor: Colors.lightGreenAccent,
-        //     shape: RoundedRectangleBorder(
-        //       borderRadius: BorderRadius.circular(12),
-        //     ),
-        //   ),
-        //   onPressed: () {
-        //     Navigator.push(
-        //       context,
-        //       MaterialPageRoute(
-        //         builder: (context) => SesiLayoutBuilder(),
-        //       ),
-        //     );
-        //   },
-
-        //   child: Text(
-        //     'Sesi LayoutBuilder',
-        //     style: TextStyle(color: Colors.black),
-        //   ),
-        // ),
       ],
     );
   }
